@@ -3,9 +3,9 @@ xproto
 Xorg X11 protocol headers
 
 Build requirements:
-  cygwin-1.5.24-2
-  cygport-0.3.5-1
-  gawk-3.1.5-4
+  cygwin-1.5.25-15
+  cygport-0.3.13-1
+  gawk-3.1.6-1
   make-3.81-1
   sed-4.1.5-2
 
@@ -18,15 +18,15 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack xproto-7.0.10-X-src.tar.bz2
+  unpack xproto-7.0.13-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./xproto-7.0.10-X.cygport all
+  cygport ./xproto-7.0.13-X.cygport all
 
 This will create:
-  /usr/src/xproto-7.0.10-X-src.tar.bz2
-  /usr/src/xproto-7.0.10-X.tar.bz2
+  /usr/src/xproto-7.0.13-X-src.tar.bz2
+  /usr/src/xproto-7.0.13-X.tar.bz2
 
 -------------------------------------------
 
@@ -59,14 +59,16 @@ Files included in the binary package:
   /usr/include/X11/keysym.h
   /usr/include/X11/keysymdef.h
   /usr/lib/pkgconfig/xproto.pc
-  /usr/share/doc/Cygwin/xproto-7.0.10.README
-  /usr/share/doc/xproto-7.0.10/AUTHORS
-  /usr/share/doc/xproto-7.0.10/COPYING
-  /usr/share/doc/xproto-7.0.10/ChangeLog
+  /usr/share/doc/xproto-7.0.13/AUTHORS
+  /usr/share/doc/xproto-7.0.13/COPYING
+  /usr/share/doc/xproto-7.0.13/ChangeLog
 
 ------------------
 
 Port Notes:
+
+----- version 7.0.13-1 -----
+Version bump.
 
 ----- version 7.0.10-1 -----
 X11R7.3 version bump.
