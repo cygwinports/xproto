@@ -3,9 +3,9 @@ xproto
 X.Org X11 protocol headers
 
 Build requirements:
-  cygwin-1.7.0-50
-  cygport-0.9.7-1
-  gawk-3.1.6-2
+  cygwin-1.7.0-62
+  cygport-0.9.10-1
+  gawk-3.1.7-1
   make-3.81-2
   sed-4.1.5-2
 
@@ -18,54 +18,22 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack xproto-7.0.15-X-src.tar.bz2
+  unpack xproto-7.0.16-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./xproto-7.0.15-X.cygport all
+  cygport ./xproto-7.0.16-X.cygport all
 
 This will create:
-  /usr/src/xproto-7.0.15-X-src.tar.bz2
-  /usr/src/xproto-7.0.15-X.tar.bz2
+  /usr/src/xproto-7.0.16-X-src.tar.bz2
+  /usr/src/xproto-7.0.16-X.tar.bz2
 
 -------------------------------------------
 
-Files included in the binary package:
-
-  /usr/include/X11/DECkeysym.h
-  /usr/include/X11/HPkeysym.h
-  /usr/include/X11/Sunkeysym.h
-  /usr/include/X11/X.h
-  /usr/include/X11/XF86keysym.h
-  /usr/include/X11/XWDFile.h
-  /usr/include/X11/Xalloca.h
-  /usr/include/X11/Xarch.h
-  /usr/include/X11/Xatom.h
-  /usr/include/X11/Xdefs.h
-  /usr/include/X11/Xfuncproto.h
-  /usr/include/X11/Xfuncs.h
-  /usr/include/X11/Xmd.h
-  /usr/include/X11/Xos.h
-  /usr/include/X11/Xos_r.h
-  /usr/include/X11/Xosdefs.h
-  /usr/include/X11/Xpoll.h
-  /usr/include/X11/Xproto.h
-  /usr/include/X11/Xprotostr.h
-  /usr/include/X11/Xthreads.h
-  /usr/include/X11/Xw32defs.h
-  /usr/include/X11/Xwindows.h
-  /usr/include/X11/Xwinsock.h
-  /usr/include/X11/ap_keysym.h
-  /usr/include/X11/keysym.h
-  /usr/include/X11/keysymdef.h
-  /usr/lib/pkgconfig/xproto.pc
-  /usr/share/doc/xproto/AUTHORS
-  /usr/share/doc/xproto/COPYING
-  /usr/share/doc/xproto/ChangeLog
-
-------------------
-
 Port Notes:
+
+----- version 7.0.16-1 -----
+Version bump for X11R7.5.
 
 ----- version 7.0.15-2 -----
 Patched to stop "visibility attribute not supported" warnings.
