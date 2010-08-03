@@ -1,3 +1,0 @@
-inherit xorg
-
-PATCH_URI="7.0.15-gcc4-visibility.patch"
