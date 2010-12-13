@@ -1,3 +1,4 @@
 category: X11
+requires:
 sdesc: "X.Org X11 core headers"
 ldesc: "X.Org X11 core headers"
