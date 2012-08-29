@@ -1,0 +1,20 @@
+Necessary for mingw-w64 <windef.h> compatibility.
+
+--- origsrc/xproto-7.0.23/Xwindows.h	2012-03-16 01:11:44.000000000 -0500
++++ src/xproto-7.0.23/Xwindows.h	2012-08-29 01:05:38.269979500 -0500
+@@ -51,6 +51,7 @@ The Open Group.
+ 
+ #define NOMINMAX
+ #define BOOL wBOOL
++#define _PROTECT_BOOL_MACRO
+ #define INT32 wINT32
+ #undef Status
+ #define Status wStatus
+@@ -63,6 +64,7 @@ The Open Group.
+ #define Status int
+ #undef BYTE
+ #undef BOOL
++#undef _PROTECT_BOOL_MACRO
+ #undef INT32
+ #undef ATOM
+ #undef FreeResource
