@@ -1,6 +1,7 @@
-inherit xorg
-
+NAME="xproto"
+VERSION=7.0.23
+RELEASE=3
 CATEGORY="X11"
 SUMMARY="X.Org X11 core headers"
-
 PATCH_URI="01-w32api-BOOL.patch"
+inherit xorg

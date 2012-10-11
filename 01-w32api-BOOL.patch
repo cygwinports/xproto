@@ -1,20 +1,84 @@
-Necessary for mingw-w64 <windef.h> compatibility.
+From d66e2f31bf8d08fb7ac3f28b33e7baff48ca3520 Mon Sep 17 00:00:00 2001
+From: Jon TURNEY <jon.turney@dronecode.org.uk>
+Date: Tue, 4 Sep 2012 12:59:01 +0100
+Subject: [PATCH xproto] Adjust <windows.h> wrapping to work with mingw-w64 headers as well
 
---- origsrc/xproto-7.0.23/Xwindows.h	2012-03-16 01:11:44.000000000 -0500
-+++ src/xproto-7.0.23/Xwindows.h	2012-08-29 01:05:38.269979500 -0500
-@@ -51,6 +51,7 @@ The Open Group.
+Adjust <windows.h> wrapping to work with mingw-w64 headers as well, which define
+BOOL in a different way
+
+Signed-off-by: Jon TURNEY <jon.turney@dronecode.org.uk>
+---
+ Xwindows.h |   39 ++++++++++++++++++++++++++++-----------
+ 1 files changed, 28 insertions(+), 11 deletions(-)
+
+diff --git a/Xwindows.h b/Xwindows.h
+index 6318155..1f2c945 100644
+--- a/Xwindows.h
++++ b/Xwindows.h
+@@ -29,28 +29,39 @@ The Open Group.
+ /*
+  * This header file has the sole purpose of allowing the inclusion of
+  * windows.h without getting any name conflicts with X headers code, by
+- * renaming the conflicting definitions from windows.h
+- *
+- * Some (non-Microsoft) versions of the Windows API headers actually avoid
++ * renaming or disabling the conflicting definitions from windows.h
++ */
++
++/*
++ * Mingw.org versions of the Windows API headers actually avoid
+  * making the conflicting definitions if XFree86Server is defined, so we
+  * need to remember if that was defined and undefine it during including
+  * windows.h (so the conflicting definitions get wrapped correctly), and
+- * then redefine it afterwards...
+- *
+- * There doesn't seem to be a good way to wrap the min/max macros from
+- * windows.h, so we simply avoid defining them completely, allowing any
+- * pre-existing definition to stand.
+- *
++ * then redefine it afterwards. (This was never the correct thing to
++ * do as it's no help at all to X11 clients which also need to use the
++ * Win32 API)
+  */
+-
+ #undef _XFree86Server
+ #ifdef XFree86Server
+ # define _XFree86Server
+ # undef XFree86Server
+ #endif
  
++/*
++ * There doesn't seem to be a good way to wrap the min/max macros from
++ * windows.h, so we simply avoid defining them completely, allowing any
++ * pre-existing definition to stand.
++ *
++ */
  #define NOMINMAX
- #define BOOL wBOOL
-+#define _PROTECT_BOOL_MACRO
+-#define BOOL wBOOL
++
++/*
++  mingw-w64 headers define BOOL as a typedef, protecting against macros
++  mingw.org headers define BOOL in terms of WINBOOL
++  ... so try to come up with something which works with both :-)
++ */
++#define _NO_BOOL_TYPEDEF
++#define BOOL WINBOOL
  #define INT32 wINT32
  #undef Status
  #define Status wStatus
-@@ -63,6 +64,7 @@ The Open Group.
- #define Status int
- #undef BYTE
- #undef BOOL
-+#undef _PROTECT_BOOL_MACRO
- #undef INT32
- #undef ATOM
+@@ -68,6 +79,12 @@ The Open Group.
  #undef FreeResource
+ #undef CreateWindowA
+ 
++/*
++  Older version of this header used to name the windows API bool type wBOOL,
++  rather than more standard name WINBOOL
++*/
++#define wBOOL WINBOOL
++
+ #ifdef RESOURCE_H
+ # undef RT_FONT
+ # undef RT_CURSOR
+-- 
+1.7.9
+
