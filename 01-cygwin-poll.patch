@@ -1,0 +1,11 @@
+--- origsrc/xproto-7.0.24/Xpoll.h.in	2013-03-29 18:26:53.000000000 -0500
++++ src/xproto-7.0.24/Xpoll.h.in	2013-10-06 16:47:31.898189700 -0500
+@@ -50,7 +50,7 @@ from The Open Group.
+ #ifndef _XPOLL_H_
+ #define _XPOLL_H_
+ 
+-#ifndef WIN32
++#if !defined(WIN32) || defined(__CYGWIN__)
+ 
+ #ifndef USE_POLL
+ 

@@ -1,9 +1,12 @@
 inherit xorg
 
 NAME="xproto"
-VERSION=7.0.24
+VERSION=7.0.25
 RELEASE=1
-CATEGORY="X11"
+CATEGORY="Devel"
 SUMMARY="X.Org X11 core headers"
 
-PATCH_URI="02-cygwin64.patch"
+PATCH_URI="
+	01-cygwin-poll.patch
+	02-cygwin64.patch
+"
