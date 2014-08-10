@@ -1,12 +1,15 @@
 inherit xorg
 
 NAME="xproto"
-VERSION=7.0.25
+VERSION=7.0.26
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="X.Org X11 core headers"
+DESCRIPTION="This package provides the headers and specification documents
+defining the X Window System Core Protocol, Version 11.  It also includes a
+number of headers that aren't purely protocol related, but are depended upon
+by many other X Window System packages to provide common definitions and
+porting layer."
 
-PATCH_URI="
-	01-cygwin-poll.patch
-	02-cygwin64.patch
-"
+# There are some generated headers, but they are not arch-specific
+ARCH="noarch"
