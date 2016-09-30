@@ -1,7 +1,7 @@
 inherit xorg
 
 NAME="xproto"
-VERSION=7.0.28
+VERSION=7.0.31
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="X.Org X11 core headers"
